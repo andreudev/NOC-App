@@ -8,5 +8,4 @@ import "dotenv/config";
 
 function main() {
   ServerApp.start();
-  // console.log(envs);
 }
