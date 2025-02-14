@@ -3,6 +3,7 @@ import { FileSystemDataSource } from "../infrastructure/datasources/file-system.
 import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository.impl";
 import { CronService } from "./cron/cron-service";
 
+// Data sourc and repository
 const fileSystemLogRepository = new LogRepositoryImpl(
   new FileSystemDataSource()
 );

@@ -23,6 +23,8 @@ export class CheckService implements CheckServiceUseCase {
       }
       const log = new LogEntity(`Service ${url} is working`, LogLevel.low);
       this.logRepository.saveLog(log);
+
+      // Si se ha definido un callback de éxito, se ejecuta y se retorna true
       this.successCallback && this.successCallback();
       return true;
     } catch (error) {
@@ -30,6 +32,7 @@ export class CheckService implements CheckServiceUseCase {
       const log = new LogEntity(errorMessage, LogLevel.high);
       this.logRepository.saveLog(log);
 
+      // Si se ha definido un callback de error, se ejecuta sino se retorna false
       this.errorCallback && this.errorCallback(errorMessage);
       return false;
     }
